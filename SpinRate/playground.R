@@ -1,9 +1,4 @@
-## Sort the data on a pitch/ pitch speed/ spin rate / player / year basis
-## Create Dash that allows for multiple selected pitchers, Statistic of choice, Pitch, and year in hist format
-## Make buttons reactive off year and pitch
-
-
-
+## Make buttons reactive off years, pitcher, and team
 
 
 library(tidyverse)
@@ -40,6 +35,7 @@ filtered_df = merged %>%
   select(player_name, name, year.x, pitch_hand, pitchType, spin, speed, team_id, franchise_id)
 filtered_df$name[filtered_df$year.x == 2022 & filtered_df$franchise_id == "CLE"] <- "Cleveland Guardians"
   
-
+ggplot(data = NULL, aes(x=pitchType, y=speed)) + scale_y_continuous(limits = c(60, 110)) + geom_point(data = waino, color = "red2") + geom_point(data=klube, color = "blue2")
+ggplot(data = cards, aes(x=pitchType, y=speed)) + scale_y_continuous(limits = c(60, 110)) + geom_boxplot(outlier.colour = "green", fill = "red")
 
 
